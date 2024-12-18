@@ -10,18 +10,17 @@
     self,
     nixpkgs,
     flake-utils,
-  }:
-    flake-utils.lib.eachDefaultSystem (system: let
+  }: flake-utils.lib.eachSystem [ "x86_64-linux" "aarch64-linux" ] (system: let
       pkgs = import nixpkgs {
         inherit system;
       };
-      patchy-cnb = pkgs.callPackage ./pkgs/patchy-cnb.nix {};
-    in rec {
-      packages = {
-        inherit patchy-cnb;
-        default = pkgs.callPackage ./pkgs/claude-desktop.nix {
+    in {
+      packages = rec {
+        patchy-cnb = pkgs.callPackage ./pkgs/patchy-cnb.nix {};
+        claude-desktop = pkgs.callPackage ./pkgs/claude-desktop.nix {
           inherit patchy-cnb;
         };
+        default = claude-desktop;
       };
     });
 }
