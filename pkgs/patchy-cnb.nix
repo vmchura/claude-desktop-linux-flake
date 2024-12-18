@@ -8,7 +8,7 @@
   nodejs,
   libiconv,
 }: let
-  patchy-cnb-repo = ./patchy-cnb;
+  patchy-cnb-repo = ../patchy-cnb;
 in
   rustPlatform.buildRustPackage rec {
     pname = "patchy-cnb";

@@ -15,12 +15,11 @@
       pkgs = import nixpkgs {
         inherit system;
       };
-      patchy-cnb = pkgs.callPackage ./patchy-cnb.nix {};
+      patchy-cnb = pkgs.callPackage ./pkgs/patchy-cnb.nix {};
     in rec {
       packages = {
         inherit patchy-cnb;
-        # patchy-cnb = pkgs.callPackage ./patchy-cnb.nix {};
-        default = pkgs.callPackage ./claude-desktop.nix {
+        default = pkgs.callPackage ./pkgs/claude-desktop.nix {
           inherit patchy-cnb;
         };
       };
