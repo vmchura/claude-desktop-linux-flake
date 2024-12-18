@@ -3,23 +3,24 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
+    flake-utils.url = "github:numtide/flake-utils";
   };
 
   outputs = {
     self,
     nixpkgs,
-  }:
-  let
-    system = "x86_64-linux";
-    pkgs = import nixpkgs { inherit system; };
-  in
-  {
-    packages.x86_64-linux = rec {
-      patchy-cnb = pkgs.callPackage ./pkgs/patchy-cnb.nix {};
-      claude-desktop = pkgs.callPackage ./pkgs/claude-desktop.nix {
-        inherit patchy-cnb;
+    flake-utils,
+  }: flake-utils.lib.eachSystem [ "x86_64-linux" "aarch64-linux" ] (system: let
+      pkgs = import nixpkgs {
+        inherit system;
       };
-      default = claude-desktop;
-    };
-  };
+    in {
+      packages = rec {
+        patchy-cnb = pkgs.callPackage ./pkgs/patchy-cnb.nix {};
+        claude-desktop = pkgs.callPackage ./pkgs/claude-desktop.nix {
+          inherit patchy-cnb;
+        };
+        default = claude-desktop;
+      };
+    });
 }
