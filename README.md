@@ -45,6 +45,9 @@ inputs.claude-desktop.packages.${system}.claude-desktop
 
 This repository only provides a Nix flake, and does not provide a package for e.g. Ubuntu, Fedora, or Arch Linux.
 
+Other known variants:
+- https://github.com/wankdanker/claude-desktop-linux-bash - A bash-based Claude Desktop builder that works on Ubuntu and possibly other Debian derivatives
+
 If anyone else packages Claude Desktop for other distributions, make an issue or PR and I'll link it here.
 
 # How it works
