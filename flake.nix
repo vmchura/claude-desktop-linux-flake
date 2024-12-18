@@ -17,11 +17,12 @@
       };
       patchy-cnb = pkgs.callPackage ./pkgs/patchy-cnb.nix {};
     in rec {
-      packages = {
+      packages = rec {
         inherit patchy-cnb;
-        default = pkgs.callPackage ./pkgs/claude-desktop.nix {
+        claude-desktop = pkgs.callPackage ./pkgs/claude-desktop.nix {
           inherit patchy-cnb;
         };
+        default = claude-desktop;
       };
     });
 }
