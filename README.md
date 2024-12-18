@@ -52,7 +52,7 @@ If anyone else packages Claude Desktop for other distributions, make an issue or
 
 # How it works
 
-Claude Desktop is an Electron application. That means the majority of the application is inside an `app.asar` archive.
+Claude Desktop is an Electron application. That means the majority of the application is inside an `app.asar` archive, which usually contains minified Javascript, HTML, and CSS, along with images and a few other things.
 
 Despite there being no official Linux Claude Desktop release, the vast majority of the code is completely cross-platform.
 
