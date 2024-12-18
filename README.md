@@ -18,7 +18,7 @@ This is a Nix flake for running Claude Desktop on Linux.
 
 # Usage
 
-To use this, make sure Nix is installed, then run
+To run this once, make sure Nix is installed, then run
 
 ```bash
 NIXPKGS_ALLOW_UNFREE=1 nix run github:k3d3/claude-desktop-linux-flake --impure
@@ -26,6 +26,19 @@ NIXPKGS_ALLOW_UNFREE=1 nix run github:k3d3/claude-desktop-linux-flake --impure
 
 The "unfree" part is due to the fact that Claude Desktop is not an open source application, and thus, Nix's licensing rules
 are dictated by the application itself, not the build script used to build the application.
+
+## Installation on NixOS with Flakes
+
+Add the following to your `flake.nix`:
+```nix
+inputs.claude-desktop.url = "github:k3d3/claude-desktop-linux-flake";
+inputs.claude-desktop.inputs.nixpkgs.follows = "nixpkgs";
+```
+
+And then the following package to your `environment.systemPackages` or `home.packages`:
+```nix
+inputs.claude-desktop.packages.${system}.claude-desktop
+```
 
 ## Other distributions
 
