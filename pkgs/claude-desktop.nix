@@ -90,6 +90,10 @@ in
       ls ../lib/net45/resources/
       cp ../lib/net45/resources/Tray* app.asar.contents/resources/
 
+      # Copy i18n json files
+      mkdir -p app.asar.contents/resources/i18n
+      cp ../lib/net45/resources/*.json app.asar.contents/resources/i18n/
+
       # Repackage app.asar
       asar pack app.asar.contents app.asar
 
