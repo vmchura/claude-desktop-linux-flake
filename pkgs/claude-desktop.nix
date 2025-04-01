@@ -12,11 +12,11 @@
   patchy-cnb,
 }: let
   pname = "claude-desktop";
-  version = "0.9.0";
+  version = "0.9.1";
   srcExe = fetchurl {
     # NOTE: `?v=0.9.0` doesn't actually request a specific version. It's only being used here as a cache buster.
-    url = "https://storage.googleapis.com/osprey-downloads-c02f6a0d-347c-492b-a752-3e0651722e97/nest-win-x64/Claude-Setup-x64.exe?v=0.9.0";
-    hash = "sha256-K/8yLAGLDoAGaQnzmuqTY3U1+iHoJHOxVfs44finTlg=";
+    url = "https://storage.googleapis.com/osprey-downloads-c02f6a0d-347c-492b-a752-3e0651722e97/nest-win-x64/Claude-Setup-x64.exe?v=0.9.1";
+    hash = "sha256-6o7IUPKLO4vKYCnb82B7rgfdfpQiQy6JLTiKj0appIw=";
   };
 in
   stdenvNoCC.mkDerivation rec {
