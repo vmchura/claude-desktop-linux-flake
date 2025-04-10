@@ -16,7 +16,7 @@
   srcExe = fetchurl {
     # NOTE: `?v=0.9.0` doesn't actually request a specific version. It's only being used here as a cache buster.
     url = "https://storage.googleapis.com/osprey-downloads-c02f6a0d-347c-492b-a752-3e0651722e97/nest-win-x64/Claude-Setup-x64.exe?v=0.9.1";
-    hash = "sha256-6o7IUPKLO4vKYCnb82B7rgfdfpQiQy6JLTiKj0appIw=";
+    hash = "sha256-7ESPVJHsb2ytseXKPp5fvM/nIaTDNXP2QUUugo6lwqc=";
   };
 in
   stdenvNoCC.mkDerivation rec {
