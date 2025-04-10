@@ -56,7 +56,6 @@ in
 
       # Extract installer exe, and nupkg within it
       7z x -y ${srcExe}
-      ls
       7z x -y "AnthropicClaude-${version}-full.nupkg"
 
       # Package the icons from claude.exe
