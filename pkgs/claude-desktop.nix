@@ -13,11 +13,11 @@
   perl
 }: let
   pname = "claude-desktop";
-  version = "0.12.28";
+  version = "0.12.29";
   srcExe = fetchurl {
     # NOTE: `?v=0.10.0` doesn't actually request a specific version. It's only being used here as a cache buster.
     url = "https://storage.googleapis.com/osprey-downloads-c02f6a0d-347c-492b-a752-3e0651722e97/nest-win-x64/Claude-Setup-x64.exe?v=${version}";
-    hash = "sha256-5pMv6LrGOvQXEAnWEtHd9/9hZzZ0mAi0/YUZNkw/AbY=";
+    hash = "sha256-uQDHaxl2qlufLxKN83cObawtG6D8x/+H+hDgYlv+Dvc=";
   };
 in
   stdenvNoCC.mkDerivation rec {
